@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		0CC0A50229D36D6400AF4144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC0A50129D36D6400AF4144 /* AppDelegate.swift */; };
-		0CC0A50429D36D6400AF4144 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC0A50329D36D6400AF4144 /* SceneDelegate.swift */; };
 		0CC0A50629D36D6400AF4144 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC0A50529D36D6400AF4144 /* ViewController.swift */; };
-		0CC0A50929D36D6400AF4144 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC0A50729D36D6400AF4144 /* Main.storyboard */; };
 		0CC0A50B29D36D6600AF4144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CC0A50A29D36D6600AF4144 /* Assets.xcassets */; };
 		0CC0A50E29D36D6600AF4144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC0A50C29D36D6600AF4144 /* LaunchScreen.storyboard */; };
+		0CC0A51929D3ABF500AF4144 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC0A51829D3ABF500AF4144 /* Welcome.storyboard */; };
+		360CE725DA8416A7706EB565 /* Pods_SocialNetworkTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39849097C2DE13BD4B9B4346 /* Pods_SocialNetworkTemplate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0CC0A4FE29D36D6400AF4144 /* SocialNetworkTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworkTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC0A50129D36D6400AF4144 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0CC0A50329D36D6400AF4144 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0CC0A50529D36D6400AF4144 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0CC0A50829D36D6400AF4144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0CC0A50A29D36D6600AF4144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CC0A50D29D36D6600AF4144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CC0A50F29D36D6600AF4144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CC0A51829D3ABF500AF4144 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		39849097C2DE13BD4B9B4346 /* Pods_SocialNetworkTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialNetworkTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9692CC416FB4B6C2B480BD0B /* Pods-SocialNetworkTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkTemplate.debug.xcconfig"; path = "Target Support Files/Pods-SocialNetworkTemplate/Pods-SocialNetworkTemplate.debug.xcconfig"; sourceTree = "<group>"; };
+		B530BDD9D11506DE44125BFF /* Pods-SocialNetworkTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkTemplate.release.xcconfig"; path = "Target Support Files/Pods-SocialNetworkTemplate/Pods-SocialNetworkTemplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				360CE725DA8416A7706EB565 /* Pods_SocialNetworkTemplate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,8 @@
 			children = (
 				0CC0A50029D36D6400AF4144 /* SocialNetworkTemplate */,
 				0CC0A4FF29D36D6400AF4144 /* Products */,
+				6753310A678AE2C4E9339409 /* Pods */,
+				B6DDF049207D395ABFEFC4A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +61,55 @@
 		0CC0A50029D36D6400AF4144 /* SocialNetworkTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				0CC0A50129D36D6400AF4144 /* AppDelegate.swift */,
-				0CC0A50329D36D6400AF4144 /* SceneDelegate.swift */,
-				0CC0A50529D36D6400AF4144 /* ViewController.swift */,
-				0CC0A50729D36D6400AF4144 /* Main.storyboard */,
-				0CC0A50A29D36D6600AF4144 /* Assets.xcassets */,
-				0CC0A50C29D36D6600AF4144 /* LaunchScreen.storyboard */,
+				0CC0A51629D3AB7500AF4144 /* Modules */,
+				0CC0A51529D3AB6000AF4144 /* Commons */,
 				0CC0A50F29D36D6600AF4144 /* Info.plist */,
 			);
 			path = SocialNetworkTemplate;
+			sourceTree = "<group>";
+		};
+		0CC0A51529D3AB6000AF4144 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				0CC0A50129D36D6400AF4144 /* AppDelegate.swift */,
+				0CC0A50529D36D6400AF4144 /* ViewController.swift */,
+				0CC0A50A29D36D6600AF4144 /* Assets.xcassets */,
+				0CC0A50C29D36D6600AF4144 /* LaunchScreen.storyboard */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		0CC0A51629D3AB7500AF4144 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				0CC0A51729D3ABB200AF4144 /* Welcome */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		0CC0A51729D3ABB200AF4144 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				0CC0A51829D3ABF500AF4144 /* Welcome.storyboard */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		6753310A678AE2C4E9339409 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9692CC416FB4B6C2B480BD0B /* Pods-SocialNetworkTemplate.debug.xcconfig */,
+				B530BDD9D11506DE44125BFF /* Pods-SocialNetworkTemplate.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B6DDF049207D395ABFEFC4A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39849097C2DE13BD4B9B4346 /* Pods_SocialNetworkTemplate.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +119,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0CC0A51229D36D6600AF4144 /* Build configuration list for PBXNativeTarget "SocialNetworkTemplate" */;
 			buildPhases = (
+				C7A8EDC12A401DAEDCC2D5DE /* [CP] Check Pods Manifest.lock */,
 				0CC0A4FA29D36D6400AF4144 /* Sources */,
 				0CC0A4FB29D36D6400AF4144 /* Frameworks */,
 				0CC0A4FC29D36D6400AF4144 /* Resources */,
+				0DD9F1AB2197694FDFB49753 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,11 +174,53 @@
 			files = (
 				0CC0A50E29D36D6600AF4144 /* LaunchScreen.storyboard in Resources */,
 				0CC0A50B29D36D6600AF4144 /* Assets.xcassets in Resources */,
-				0CC0A50929D36D6400AF4144 /* Main.storyboard in Resources */,
+				0CC0A51929D3ABF500AF4144 /* Welcome.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DD9F1AB2197694FDFB49753 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SocialNetworkTemplate/Pods-SocialNetworkTemplate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SocialNetworkTemplate/Pods-SocialNetworkTemplate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SocialNetworkTemplate/Pods-SocialNetworkTemplate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7A8EDC12A401DAEDCC2D5DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialNetworkTemplate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0CC0A4FA29D36D6400AF4144 /* Sources */ = {
@@ -140,21 +229,12 @@
 			files = (
 				0CC0A50629D36D6400AF4144 /* ViewController.swift in Sources */,
 				0CC0A50229D36D6400AF4144 /* AppDelegate.swift in Sources */,
-				0CC0A50429D36D6400AF4144 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0CC0A50729D36D6400AF4144 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0CC0A50829D36D6400AF4144 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0CC0A50C29D36D6600AF4144 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +362,7 @@
 		};
 		0CC0A51329D36D6600AF4144 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9692CC416FB4B6C2B480BD0B /* Pods-SocialNetworkTemplate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -292,9 +373,10 @@
 				INFOPLIST_FILE = SocialNetworkTemplate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,14 +384,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.social.chris.SocialNetworkTemplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		0CC0A51429D36D6600AF4144 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B530BDD9D11506DE44125BFF /* Pods-SocialNetworkTemplate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -320,9 +406,10 @@
 				INFOPLIST_FILE = SocialNetworkTemplate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +417,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.social.chris.SocialNetworkTemplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
