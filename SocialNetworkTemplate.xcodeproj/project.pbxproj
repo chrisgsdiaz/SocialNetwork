@@ -12,6 +12,10 @@
 		0CC0A50B29D36D6600AF4144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CC0A50A29D36D6600AF4144 /* Assets.xcassets */; };
 		0CC0A50E29D36D6600AF4144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC0A50C29D36D6600AF4144 /* LaunchScreen.storyboard */; };
 		0CC0A51929D3ABF500AF4144 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC0A51829D3ABF500AF4144 /* Welcome.storyboard */; };
+		0CC53C8F29D51D86008E0524 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC53C8E29D51D86008E0524 /* WelcomeViewController.swift */; };
+		0CC53C9129D51D93008E0524 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC53C9029D51D93008E0524 /* LoginViewController.swift */; };
+		0CC53C9329D51DA2008E0524 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC53C9229D51DA2008E0524 /* RegisterViewController.swift */; };
+		0CC53C9629D51F77008E0524 /* UtilsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC53C9529D51F77008E0524 /* UtilsHelper.swift */; };
 		360CE725DA8416A7706EB565 /* Pods_SocialNetworkTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39849097C2DE13BD4B9B4346 /* Pods_SocialNetworkTemplate.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +27,10 @@
 		0CC0A50D29D36D6600AF4144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CC0A50F29D36D6600AF4144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CC0A51829D3ABF500AF4144 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		0CC53C8E29D51D86008E0524 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		0CC53C9029D51D93008E0524 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0CC53C9229D51DA2008E0524 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		0CC53C9529D51F77008E0524 /* UtilsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsHelper.swift; sourceTree = "<group>"; };
 		39849097C2DE13BD4B9B4346 /* Pods_SocialNetworkTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialNetworkTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9692CC416FB4B6C2B480BD0B /* Pods-SocialNetworkTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkTemplate.debug.xcconfig"; path = "Target Support Files/Pods-SocialNetworkTemplate/Pods-SocialNetworkTemplate.debug.xcconfig"; sourceTree = "<group>"; };
 		B530BDD9D11506DE44125BFF /* Pods-SocialNetworkTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkTemplate.release.xcconfig"; path = "Target Support Files/Pods-SocialNetworkTemplate/Pods-SocialNetworkTemplate.release.xcconfig"; sourceTree = "<group>"; };
@@ -61,6 +69,7 @@
 		0CC0A50029D36D6400AF4144 /* SocialNetworkTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				0CC53C9429D51F55008E0524 /* Utils */,
 				0CC0A51629D3AB7500AF4144 /* Modules */,
 				0CC0A51529D3AB6000AF4144 /* Commons */,
 				0CC0A50F29D36D6600AF4144 /* Info.plist */,
@@ -91,8 +100,19 @@
 			isa = PBXGroup;
 			children = (
 				0CC0A51829D3ABF500AF4144 /* Welcome.storyboard */,
+				0CC53C8E29D51D86008E0524 /* WelcomeViewController.swift */,
+				0CC53C9029D51D93008E0524 /* LoginViewController.swift */,
+				0CC53C9229D51DA2008E0524 /* RegisterViewController.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		0CC53C9429D51F55008E0524 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0CC53C9529D51F77008E0524 /* UtilsHelper.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		6753310A678AE2C4E9339409 /* Pods */ = {
@@ -227,8 +247,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CC53C9129D51D93008E0524 /* LoginViewController.swift in Sources */,
+				0CC53C9329D51DA2008E0524 /* RegisterViewController.swift in Sources */,
+				0CC53C8F29D51D86008E0524 /* WelcomeViewController.swift in Sources */,
 				0CC0A50629D36D6400AF4144 /* ViewController.swift in Sources */,
 				0CC0A50229D36D6400AF4144 /* AppDelegate.swift in Sources */,
+				0CC53C9629D51F77008E0524 /* UtilsHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
