@@ -88,6 +88,7 @@ extension WelcomeViewController {
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
         titleLabel.text = "Socialize"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         clearView.addSubview(titleLabel)
         titleLabel.centerYAnchor.constraint(equalTo: clearView.centerYAnchor).isActive = true
@@ -113,19 +114,17 @@ extension WelcomeViewController {
         contentButtonsView = UIView()
         contentButtonsView.backgroundColor = .clear
         contentButtonsView.clipsToBounds = true
-        
         contentButtonsView.translatesAutoresizingMaskIntoConstraints = false
         clearView.addSubview(contentButtonsView)
-        contentButtonsView.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 200).isActive = true
-        //contentButtonsView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        contentButtonsView.heightAnchor.constraint(equalToConstant: 180).isActive = true
         contentButtonsView.bottomAnchor.constraint(equalTo: clearView.bottomAnchor, constant: 0).isActive = true
-        contentButtonsView.leftAnchor.constraint(equalTo: clearView.leftAnchor, constant: 0).isActive = true
-        contentButtonsView.rightAnchor.constraint(equalTo: clearView.rightAnchor, constant: 0).isActive = true
+        contentButtonsView.leftAnchor.constraint(equalTo: clearView.leftAnchor, constant: 20).isActive = true
+        contentButtonsView.rightAnchor.constraint(equalTo: clearView.rightAnchor, constant: -20).isActive = true
         
         loginButton = UIButton()
         loginButton.backgroundColor = .white
         loginButton.layer.cornerRadius = 25
-        loginButton.setTitle("Iniciar sesión", for: .normal)
+        loginButton.setTitle("Iniciar Sesión", for: .normal)
         loginButton.setTitleColor(.black, for: .normal)
         loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
@@ -138,7 +137,7 @@ extension WelcomeViewController {
         
         registerButton = UIButton()
         registerButton.backgroundColor = .clear
-        registerButton.setTitle("Registrarse", for: .normal)
+        registerButton.setTitle("Registro", for: .normal)
         registerButton.setTitleColor(.white, for: .normal)
         registerButton.addTarget(self, action: #selector(registerButtonAction), for: .touchUpInside)
         registerButton.isUserInteractionEnabled = true
@@ -161,7 +160,11 @@ extension WelcomeViewController {
 extension WelcomeViewController {
     
     @objc func loginButtonAction(){
-        
+        let loginVC = LoginViewController()
+        //loginVC.modalPresentationStyle = .fullScreen
+        //self.present(loginVC, animated: true, completion: nil)                    //PRESENT MODAL
+        self.show(loginVC, sender: nil)                                             //SAME AS BELOW
+        //self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
     @objc func registerButtonAction(){

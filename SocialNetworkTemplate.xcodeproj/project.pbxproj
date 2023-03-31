@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C6555F229D6076300B1CF24 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6555F129D6076300B1CF24 /* BaseViewController.swift */; };
+		0C6555F429D61EA000B1CF24 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6555F329D61EA000B1CF24 /* NavigationView.swift */; };
 		0CC0A50229D36D6400AF4144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC0A50129D36D6400AF4144 /* AppDelegate.swift */; };
 		0CC0A50629D36D6400AF4144 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC0A50529D36D6400AF4144 /* ViewController.swift */; };
 		0CC0A50B29D36D6600AF4144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CC0A50A29D36D6600AF4144 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C6555F129D6076300B1CF24 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		0C6555F329D61EA000B1CF24 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		0CC0A4FE29D36D6400AF4144 /* SocialNetworkTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworkTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC0A50129D36D6400AF4144 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CC0A50529D36D6400AF4144 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				0CC0A50529D36D6400AF4144 /* ViewController.swift */,
 				0CC0A50A29D36D6600AF4144 /* Assets.xcassets */,
 				0CC0A50C29D36D6600AF4144 /* LaunchScreen.storyboard */,
+				0C6555F129D6076300B1CF24 /* BaseViewController.swift */,
+				0C6555F329D61EA000B1CF24 /* NavigationView.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -249,9 +255,11 @@
 			files = (
 				0CC53C9129D51D93008E0524 /* LoginViewController.swift in Sources */,
 				0CC53C9329D51DA2008E0524 /* RegisterViewController.swift in Sources */,
+				0C6555F429D61EA000B1CF24 /* NavigationView.swift in Sources */,
 				0CC53C8F29D51D86008E0524 /* WelcomeViewController.swift in Sources */,
 				0CC0A50629D36D6400AF4144 /* ViewController.swift in Sources */,
 				0CC0A50229D36D6400AF4144 /* AppDelegate.swift in Sources */,
+				0C6555F229D6076300B1CF24 /* BaseViewController.swift in Sources */,
 				0CC53C9629D51F77008E0524 /* UtilsHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
