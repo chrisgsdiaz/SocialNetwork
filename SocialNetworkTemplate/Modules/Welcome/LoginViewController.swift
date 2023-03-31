@@ -11,6 +11,11 @@ class LoginViewController: BaseViewController {
     
     var scrollView: UIScrollView!
     var clearView: UIView!
+    var contentStackView: UIStackView!
+    var titleLabel: UILabel!
+    var loginNameTextField: UITextField!
+    var passwordTextField: UITextField!
+    var loginButton: UIButton!
     var contentBottomImageView: UIImageView!
 
     override func viewDidLoad() {
@@ -75,10 +80,82 @@ extension LoginViewController {
     
     private func setupElements() {
         
-        // KEY ELEMENT - IMPORTANT FOR INCREASE MAIN VIEW CONTAINER IN SCROLLVIEW
+        contentStackView = UIStackView()
+        contentStackView.distribution = .fill
+        contentStackView.spacing = 20
+        contentStackView.axis = .vertical
+        contentStackView.translatesAutoresizingMaskIntoConstraints = false
+        clearView.addSubview(contentStackView)
+        contentStackView.topAnchor.constraint(equalTo: clearView.topAnchor, constant: 30).isActive = true
+        contentStackView.leftAnchor.constraint(equalTo: clearView.leftAnchor, constant: 30).isActive = true
+        contentStackView.rightAnchor.constraint(equalTo: clearView.rightAnchor, constant: -30).isActive = true
+        
+        titleLabel = UILabel()
+        titleLabel.numberOfLines = 0
+        titleLabel.lineBreakMode = .byWordWrapping
+        titleLabel.textColor = .black
+        titleLabel.textAlignment = .left
+        titleLabel.text = "Completa los siguientes datos:"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        contentStackView.addArrangedSubview(titleLabel)
+        
+        loginNameTextField = UITextField()
+        loginNameTextField.keyboardType = .emailAddress
+        loginNameTextField.autocapitalizationType = .none
+        loginNameTextField.autocorrectionType = .no
+        loginNameTextField.placeholder = "Email"
+        loginNameTextField.layer.masksToBounds = true
+        loginNameTextField.layer.borderWidth = 0.5
+        loginNameTextField.layer.cornerRadius = 8.0
+        loginNameTextField.layer.borderColor = UIColor.gray.cgColor
+        loginNameTextField.borderStyle = .roundedRect
+        //loginNameTextField.delegate = self
+        //loginNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        contentStackView.addArrangedSubview(loginNameTextField)
+        
+        
+        passwordTextField = UITextField()
+        passwordTextField.keyboardType = .asciiCapable
+        passwordTextField.autocapitalizationType = .none
+        passwordTextField.autocorrectionType = .no
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.placeholder = "Password"
+        passwordTextField.layer.masksToBounds = true
+        passwordTextField.layer.borderWidth = 0.5
+        passwordTextField.layer.cornerRadius = 8.0
+        passwordTextField.layer.borderColor = UIColor.gray.cgColor
+        passwordTextField.borderStyle = .roundedRect
+        //loginNameTextField.delegate = self
+        //loginNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        contentStackView.addArrangedSubview(passwordTextField)
+        
+        loginButton = UIButton()
+        loginButton.backgroundColor = UIColor.systemGreen
+        loginButton.layer.cornerRadius = 25
+        loginButton.setTitle("Iniciar Sesión", for: .normal)
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
+        loginButton.isUserInteractionEnabled = true
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        contentStackView.setCustomSpacing(50, after: passwordTextField)
+        contentStackView.addArrangedSubview(loginButton)
+        
+        // KEY ELEMENT - IMPORTANT FOR INCREASE MAIN VIEW CONTAINER IN SCROLLVIEW AND REMOVE NAVIGATIONBAR HEIGHT
         
         //clearView.heightAnchor.constraint(equalToConstant: view.frame.height).isActive = true
         clearView.heightAnchor.constraint(greaterThanOrEqualToConstant: view.frame.height - navigationView.frame.height).isActive = true
+        
+    }
+    
+}
+
+// MARK: - Button Actions
+
+extension LoginViewController {
+    
+    @objc func loginButtonAction(){
         
     }
     
@@ -93,13 +170,6 @@ extension LoginViewController: NavigationViewDelegate{
     }
     
     func leftButtonPressed() {
-        print("Hola")
-        if let navigationControllers = navigationController?.viewControllers {
-            for controller in navigationControllers {
-                if controller.isKind(of: WelcomeViewController.self) {
-                    //navigationView.popToViewController(controller, animated: true)
-                }
-            }
-        }
+        navigationController?.popViewController(animated: true)
     }
 }
