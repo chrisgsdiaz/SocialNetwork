@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
 class LoginViewController: BaseViewController {
     
@@ -156,7 +157,30 @@ extension LoginViewController {
 extension LoginViewController {
     
     @objc func loginButtonAction(){
+        view.endEditing(true)
+        performLogin()
+    }
+    
+}
+
+// MARK: - Private Methods
+
+extension LoginViewController {
+    
+    private func performLogin(){
+        guard let email = loginNameTextField.text, !email.isEmpty else {
+            NotificationBanner(title: "Error", subtitle: "Debes especificar un correo.", style: .warning).show()
+            return
+        }
+        guard let password = passwordTextField.text, !password.isEmpty else {
+            NotificationBanner(title: "Error", subtitle: "Debes especificar una contraseña.", style: .warning).show()
+            return
+        }
         
+        let homeVC = HomeViewController()
+        homeVC.modalPresentationStyle = .fullScreen
+        self.present(homeVC, animated: true)
+        //self.show(homeVC, sender: nil)
     }
     
 }

@@ -163,11 +163,12 @@ extension WelcomeViewController {
         let loginVC = LoginViewController()
         //loginVC.modalPresentationStyle = .fullScreen
         //self.present(loginVC, animated: true, completion: nil)                    //PRESENT MODAL
-        self.show(loginVC, sender: nil)                                             //SAME AS BELOW
+        self.show(loginVC, sender: nil)                                             //SAME AS BELOW, BUT THIS IS THE MODERN METHOD
         //self.navigationController?.pushViewController(loginVC, animated: true)
     }
     
     @objc func registerButtonAction(){
-        
+        let registerVC = RegisterViewController()
+        self.show(registerVC, sender: nil)
     }
 }
