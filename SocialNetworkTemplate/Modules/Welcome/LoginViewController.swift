@@ -177,10 +177,10 @@ extension LoginViewController {
             return
         }
         
-        let homeVC = HomeViewController()
-        homeVC.modalPresentationStyle = .fullScreen
-        self.present(homeVC, animated: true)
-        //self.show(homeVC, sender: nil)
+        let homeVC = HomeViewController()        
+        let navController = UINavigationController(rootViewController: homeVC)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true)
     }
     
 }

@@ -46,7 +46,7 @@ extension WelcomeViewController {
         imageBackground = UIImageView()
         imageBackground.contentMode = .scaleAspectFill
         imageBackground.translatesAutoresizingMaskIntoConstraints = false
-        imageBackground.image = UtilsHelper.getImage(image: "loginBg")
+        imageBackground.image = UtilsHelper.getImage(image: "wpDental")
         imageBackground.layer.addSublayer(gradient)
 
         view.addSubview(imageBackground)
@@ -87,7 +87,7 @@ extension WelcomeViewController {
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
-        titleLabel.text = "Socialize"
+        titleLabel.text = "Sourident"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         clearView.addSubview(titleLabel)
@@ -101,7 +101,7 @@ extension WelcomeViewController {
         subTitleLabel.lineBreakMode = .byWordWrapping
         subTitleLabel.textColor = .white
         subTitleLabel.textAlignment = .center
-        subTitleLabel.text = "Bienvenida a la red social"
+        subTitleLabel.text = "Odontología especializada"
         subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         clearView.addSubview(subTitleLabel)
         subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
