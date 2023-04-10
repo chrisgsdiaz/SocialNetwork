@@ -12,6 +12,7 @@ class WelcomeViewController: UIViewController {
     var scrollView: UIScrollView!
     var clearView: UIView!
     var imageBackground: UIImageView!
+    var logoBrandImageView: UIImageView!
     var titleLabel: UILabel!
     var subTitleLabel: UILabel!
     var loginButton: UIButton!
@@ -82,6 +83,18 @@ extension WelcomeViewController {
     
     private func setupElements() {
         
+        logoBrandImageView = UIImageView()
+        logoBrandImageView.contentMode = .scaleAspectFill
+        logoBrandImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoBrandImageView.image = UtilsHelper.getImage(image: "wpBrandWhite") //wpSocialNetwork
+        view.addSubview(logoBrandImageView)
+        logoBrandImageView.centerYAnchor.constraint(equalTo: clearView.centerYAnchor).isActive = true
+        logoBrandImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        logoBrandImageView.leftAnchor.constraint(equalTo: clearView.leftAnchor, constant: 20).isActive = true
+        logoBrandImageView.rightAnchor.constraint(equalTo: clearView.rightAnchor, constant: -20).isActive = true
+        
+        //USE FOR SOCIAL NETWORK
+        /*
         titleLabel = UILabel()
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
@@ -92,10 +105,9 @@ extension WelcomeViewController {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         clearView.addSubview(titleLabel)
         titleLabel.centerYAnchor.constraint(equalTo: clearView.centerYAnchor).isActive = true
-        //titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: clearView.leftAnchor, constant: 20).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: clearView.rightAnchor, constant: -20).isActive = true
-        
+        */
         subTitleLabel = UILabel()
         subTitleLabel.numberOfLines = 0
         subTitleLabel.lineBreakMode = .byWordWrapping
@@ -104,10 +116,9 @@ extension WelcomeViewController {
         subTitleLabel.text = "Odontología especializada"
         subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         clearView.addSubview(subTitleLabel)
-        subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
+        subTitleLabel.topAnchor.constraint(equalTo: logoBrandImageView.bottomAnchor, constant: 2).isActive = true
         subTitleLabel.leftAnchor.constraint(equalTo: clearView.leftAnchor, constant: 20).isActive = true
         subTitleLabel.rightAnchor.constraint(equalTo: clearView.rightAnchor, constant: -20).isActive = true
-        
         
         // Section buttons
         
@@ -147,7 +158,6 @@ extension WelcomeViewController {
         registerButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         registerButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         registerButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
-        
         
         // KEY ELEMENT - IMPORTANT FOR INCREASE MAIN VIEW CONTAINER IN SCROLLVIEW
         

@@ -70,7 +70,7 @@ extension LoginViewController {
         
         contentBottomImageView = UIImageView()
         contentBottomImageView.contentMode = .scaleAspectFit
-        contentBottomImageView.image = UtilsHelper.getImage(image: "wpLoginRegister") //bottomImage
+        contentBottomImageView.image = UtilsHelper.getImage(image: "wpBrand") //bottomImage
         contentBottomImageView.clipsToBounds = true
         contentBottomImageView.translatesAutoresizingMaskIntoConstraints = false
         clearView.addSubview(contentBottomImageView)
@@ -115,7 +115,6 @@ extension LoginViewController {
         //loginNameTextField.delegate = self
         //loginNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         contentStackView.addArrangedSubview(loginNameTextField)
-        
         
         passwordTextField = UITextField()
         passwordTextField.keyboardType = .asciiCapable

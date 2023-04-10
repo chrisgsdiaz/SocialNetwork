@@ -47,8 +47,6 @@ extension RegisterViewController {
         scrollView.backgroundColor = .clear
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
-        
-        //scrollView.topAnchor.constraint(equalTo: navigationView.bottomAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: navigationView.bottomAnchor, constant: -20).isActive = true
         scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         scrollView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
@@ -70,7 +68,7 @@ extension RegisterViewController {
         
         contentBottomImageView = UIImageView()
         contentBottomImageView.contentMode = .scaleAspectFit
-        contentBottomImageView.image = UtilsHelper.getImage(image: "wpLoginRegister") //bottomImage
+        contentBottomImageView.image = UtilsHelper.getImage(image: "wpBrand") //bottomImage
         contentBottomImageView.clipsToBounds = true
         contentBottomImageView.translatesAutoresizingMaskIntoConstraints = false
         clearView.addSubview(contentBottomImageView)
@@ -129,7 +127,6 @@ extension RegisterViewController {
         //loginNameTextField.delegate = self
         //loginNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         contentStackView.addArrangedSubview(registerNameTextField)
-        
         
         passwordTextField = UITextField()
         passwordTextField.keyboardType = .asciiCapable
