@@ -11,9 +11,8 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .brown
-        self.navigationItem.title = "Tweets"
-        self.title = "Tweets"
+        self.view.backgroundColor = .white        
+        self.title = "Mis Consultas"
         
     }
 

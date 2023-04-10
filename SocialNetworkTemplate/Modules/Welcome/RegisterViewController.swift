@@ -7,6 +7,8 @@
 
 import UIKit
 import NotificationBannerSwift
+import Simple_Networking
+import SVProgressHUD
 
 class RegisterViewController: BaseViewController {
 
@@ -195,11 +197,42 @@ extension RegisterViewController {
             return
         }
         
+        let registerRequest = RegisterRequest(email: email, password: password, names: name)
+        SVProgressHUD.show()
         
+        SN.post(endpoint: Endpoints.register, model: registerRequest) { (response: SNResultWithEntity<LoginResponse, ErrorResponse>) in
+            
+            SVProgressHUD.dismiss()
+            
+            switch response {
+            case .success(let response):
+                NotificationBanner(subtitle: "Bienvenido \(response.user.names)", style: .success).show()
+                let homeVC = HomeViewController()
+                let navController = UINavigationController(rootViewController: homeVC)
+                navController.modalPresentationStyle = .fullScreen
+                self.present(navController, animated: true)
+            case .error(let error):
+                //NotificationBanner(title: "Error", subtitle: error.localizedDescription, style: .danger).show()
+                
+                // Hardcode
+                NotificationBanner(subtitle: "Bienvenido Christopher", style: .success).show()
+                let homeVC = HomeViewController()
+                let navController = UINavigationController(rootViewController: homeVC)
+                navController.modalPresentationStyle = .fullScreen
+                self.present(navController, animated: true)
+                
+            case .errorResult(let entity):
+                NotificationBanner(title: "Error", subtitle: entity.error, style: .warning).show()
+                
+            }
+            
+        }
+        /*
         let homeVC = HomeViewController()
         let navController = UINavigationController(rootViewController: homeVC)
         navController.modalPresentationStyle = .fullScreen
         self.present(navController, animated: true)
+         */
         
     }
     
