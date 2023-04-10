@@ -67,15 +67,15 @@ extension RegisterViewController {
     private func createBackgroundBottomImageView() {
         
         contentBottomImageView = UIImageView()
-        contentBottomImageView.contentMode = .scaleAspectFill
-        contentBottomImageView.image = UtilsHelper.getImage(image: "bottomImage")
+        contentBottomImageView.contentMode = .scaleAspectFit
+        contentBottomImageView.image = UtilsHelper.getImage(image: "wpLoginRegister") //bottomImage
         contentBottomImageView.clipsToBounds = true
         contentBottomImageView.translatesAutoresizingMaskIntoConstraints = false
         clearView.addSubview(contentBottomImageView)
-        contentBottomImageView.heightAnchor.constraint(equalToConstant: 180).isActive = true
-        contentBottomImageView.bottomAnchor.constraint(equalTo: clearView.bottomAnchor, constant: 20).isActive = true
-        contentBottomImageView.leftAnchor.constraint(equalTo: clearView.leftAnchor, constant: 0).isActive = true
-        contentBottomImageView.rightAnchor.constraint(equalTo: clearView.rightAnchor, constant: 0).isActive = true
+        contentBottomImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true //180
+        contentBottomImageView.bottomAnchor.constraint(equalTo: clearView.bottomAnchor, constant: -40).isActive = true // 20
+        contentBottomImageView.leftAnchor.constraint(equalTo: clearView.leftAnchor, constant: 30).isActive = true //0
+        contentBottomImageView.rightAnchor.constraint(equalTo: clearView.rightAnchor, constant: -30).isActive = true //0
         
     }
     
@@ -145,7 +145,7 @@ extension RegisterViewController {
         contentStackView.addArrangedSubview(passwordTextField)
         
         registerButton = UIButton()
-        registerButton.backgroundColor = UIColor.systemGreen
+        registerButton.backgroundColor = institutionalColors.mainBackgroundColor //UIColor.systemGreen
         registerButton.layer.cornerRadius = 25
         registerButton.setTitle("Registro", for: .normal)
         registerButton.setTitleColor(.white, for: .normal)
@@ -182,8 +182,8 @@ extension RegisterViewController {
 extension RegisterViewController {
     
     private func performRegister(){
-        guard let email = emailTextField.text, !email.isEmpty else {
-            NotificationBanner(title: "Error", subtitle: "Debes especificar un correo electrónico.", style: .warning).show()
+        guard let email = emailTextField.text, !email.isEmpty, email.isValidEmail() else {
+            NotificationBanner(title: "Error", subtitle: "Debes especificar un correo válido.", style: .warning).show()
             return
         }
         guard let name = registerNameTextField.text, !name.isEmpty else {

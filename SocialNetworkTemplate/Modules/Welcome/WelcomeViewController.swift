@@ -46,7 +46,7 @@ extension WelcomeViewController {
         imageBackground = UIImageView()
         imageBackground.contentMode = .scaleAspectFill
         imageBackground.translatesAutoresizingMaskIntoConstraints = false
-        imageBackground.image = UtilsHelper.getImage(image: "wpDental")
+        imageBackground.image = UtilsHelper.getImage(image: "wpDental") //loginBg
         imageBackground.layer.addSublayer(gradient)
 
         view.addSubview(imageBackground)

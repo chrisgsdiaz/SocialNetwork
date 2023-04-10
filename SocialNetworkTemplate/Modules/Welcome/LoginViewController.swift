@@ -67,15 +67,15 @@ extension LoginViewController {
     private func createBackgroundBottomImageView() {
         
         contentBottomImageView = UIImageView()
-        contentBottomImageView.contentMode = .scaleAspectFill
-        contentBottomImageView.image = UtilsHelper.getImage(image: "bottomImage")
+        contentBottomImageView.contentMode = .scaleAspectFit
+        contentBottomImageView.image = UtilsHelper.getImage(image: "wpLoginRegister") //bottomImage
         contentBottomImageView.clipsToBounds = true
         contentBottomImageView.translatesAutoresizingMaskIntoConstraints = false
         clearView.addSubview(contentBottomImageView)
-        contentBottomImageView.heightAnchor.constraint(equalToConstant: 180).isActive = true
-        contentBottomImageView.bottomAnchor.constraint(equalTo: clearView.bottomAnchor, constant: 20).isActive = true
-        contentBottomImageView.leftAnchor.constraint(equalTo: clearView.leftAnchor, constant: 0).isActive = true
-        contentBottomImageView.rightAnchor.constraint(equalTo: clearView.rightAnchor, constant: 0).isActive = true
+        contentBottomImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true //180
+        contentBottomImageView.bottomAnchor.constraint(equalTo: clearView.bottomAnchor, constant: -40).isActive = true //20
+        contentBottomImageView.leftAnchor.constraint(equalTo: clearView.leftAnchor, constant: 30).isActive = true //0
+        contentBottomImageView.rightAnchor.constraint(equalTo: clearView.rightAnchor, constant: -30).isActive = true //0
         
     }
     
@@ -131,7 +131,7 @@ extension LoginViewController {
         contentStackView.addArrangedSubview(passwordTextField)
         
         loginButton = UIButton()
-        loginButton.backgroundColor = UIColor.systemGreen
+        loginButton.backgroundColor = institutionalColors.mainBackgroundColor //UIColor.systemGreen
         loginButton.layer.cornerRadius = 25
         loginButton.setTitle("Iniciar Sesión", for: .normal)
         loginButton.setTitleColor(.white, for: .normal)
@@ -168,8 +168,8 @@ extension LoginViewController {
 extension LoginViewController {
     
     private func performLogin(){
-        guard let email = loginNameTextField.text, !email.isEmpty else {
-            NotificationBanner(title: "Error", subtitle: "Debes especificar un correo.", style: .warning).show()
+        guard let email = loginNameTextField.text, !email.isEmpty, email.isValidEmail() else {
+            NotificationBanner(title: "Error", subtitle: "Debes especificar un correo válido.", style: .warning).show()
             return
         }
         guard let password = passwordTextField.text, !password.isEmpty else {
@@ -177,7 +177,7 @@ extension LoginViewController {
             return
         }
         
-        let homeVC = HomeViewController()        
+        let homeVC = HomeViewController()
         let navController = UINavigationController(rootViewController: homeVC)
         navController.modalPresentationStyle = .fullScreen
         self.present(navController, animated: true)
