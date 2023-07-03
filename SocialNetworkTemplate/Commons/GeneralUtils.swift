@@ -10,4 +10,5 @@ import UIKit
 
 public struct institutionalColors {
     public static let mainBackgroundColor = UIColor(hexFromString: "#24BFB7", alpha: 1)
+    public static let grayLightColor = UIColor(hexFromString: "#989898", alpha: 0.3)
 }

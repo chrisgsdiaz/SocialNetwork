@@ -112,8 +112,7 @@ extension LoginViewController {
         loginNameTextField.layer.cornerRadius = 8.0
         loginNameTextField.layer.borderColor = UIColor.gray.cgColor
         loginNameTextField.borderStyle = .roundedRect
-        //loginNameTextField.delegate = self
-        //loginNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        loginNameTextField.delegate = self
         contentStackView.addArrangedSubview(loginNameTextField)
         
         passwordTextField = UITextField()
@@ -127,8 +126,7 @@ extension LoginViewController {
         passwordTextField.layer.cornerRadius = 8.0
         passwordTextField.layer.borderColor = UIColor.gray.cgColor
         passwordTextField.borderStyle = .roundedRect
-        //loginNameTextField.delegate = self
-        //loginNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        passwordTextField.delegate = self
         contentStackView.addArrangedSubview(passwordTextField)
         
         loginButton = UIButton()
@@ -214,6 +212,21 @@ extension LoginViewController {
         navController.modalPresentationStyle = .fullScreen
         self.present(navController, animated: true)
          */
+    }
+    
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == loginNameTextField {
+            textField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            textField.resignFirstResponder()
+        }
+       return true
     }
     
 }

@@ -18,6 +18,7 @@ class RegisterViewController: BaseViewController {
     var titleLabel: UILabel!
     var emailTextField: UITextField!
     var registerNameTextField: UITextField!
+    var phoneTextField: UITextField!
     var passwordTextField: UITextField!
     var registerButton: UIButton!
     var contentBottomImageView: UIImageView!
@@ -110,12 +111,11 @@ extension RegisterViewController {
         emailTextField.layer.cornerRadius = 8.0
         emailTextField.layer.borderColor = UIColor.gray.cgColor
         emailTextField.borderStyle = .roundedRect
-        //loginNameTextField.delegate = self
-        //loginNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        emailTextField.delegate = self
         contentStackView.addArrangedSubview(emailTextField)
         
         registerNameTextField = UITextField()
-        registerNameTextField.keyboardType = .emailAddress
+        registerNameTextField.keyboardType = .asciiCapable
         registerNameTextField.autocapitalizationType = .none
         registerNameTextField.autocorrectionType = .no
         registerNameTextField.placeholder = "Nombre y Apellido"
@@ -124,9 +124,21 @@ extension RegisterViewController {
         registerNameTextField.layer.cornerRadius = 8.0
         registerNameTextField.layer.borderColor = UIColor.gray.cgColor
         registerNameTextField.borderStyle = .roundedRect
-        //loginNameTextField.delegate = self
-        //loginNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        registerNameTextField.delegate = self
         contentStackView.addArrangedSubview(registerNameTextField)
+        
+        phoneTextField = UITextField()
+        phoneTextField.keyboardType = .numberPad
+        phoneTextField.autocapitalizationType = .none
+        phoneTextField.autocorrectionType = .no
+        phoneTextField.placeholder = "Número telefonico"
+        phoneTextField.layer.masksToBounds = true
+        phoneTextField.layer.borderWidth = 0.5
+        phoneTextField.layer.cornerRadius = 8.0
+        phoneTextField.layer.borderColor = UIColor.gray.cgColor
+        phoneTextField.borderStyle = .roundedRect
+        phoneTextField.delegate = self
+        contentStackView.addArrangedSubview(phoneTextField)
         
         passwordTextField = UITextField()
         passwordTextField.keyboardType = .asciiCapable
@@ -139,8 +151,7 @@ extension RegisterViewController {
         passwordTextField.layer.cornerRadius = 8.0
         passwordTextField.layer.borderColor = UIColor.gray.cgColor
         passwordTextField.borderStyle = .roundedRect
-        //loginNameTextField.delegate = self
-        //loginNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        passwordTextField.delegate = self
         contentStackView.addArrangedSubview(passwordTextField)
         
         registerButton = UIButton()
@@ -231,6 +242,35 @@ extension RegisterViewController {
         self.present(navController, animated: true)
          */
         
+    }
+    
+}
+
+extension RegisterViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 10
+        let currentString = (textField.text ?? "") as NSString
+        let newString = currentString.replacingCharacters(in: range, with: string)
+
+        return newString.count <= maxLength
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == emailTextField {
+            textField.resignFirstResponder()
+            registerNameTextField.becomeFirstResponder()
+        } else if textField == registerNameTextField {
+            textField.resignFirstResponder()
+            phoneTextField.becomeFirstResponder()
+        } else if textField == phoneTextField {
+            textField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            textField.resignFirstResponder()
+        }
+       return true
     }
     
 }
