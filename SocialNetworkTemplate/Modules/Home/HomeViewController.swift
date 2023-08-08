@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     //MARK: Properties
     
     private let cellID = "AppointmentTableViewCell"
+    let images = ["ana", "karen", "leo", "israel"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +57,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         if let cell = cell as? AppointmentTableViewCell {
-            cell.fieldAreaLabel.text = "Ortodoncia"
             cell.doctorLabel.text = "Ana Cristina"
+            cell.fieldAreaLabel.text = "Ortodoncia"
             cell.dateAppointmentLabel.text = "11 de junio 2023 a las 18:20 hrs."
-            cell.doctorImageView.image = UtilsHelper.getImage(image: "ana")
+            cell.doctorImageView.image = UtilsHelper.getImage(image: images[0])
         }
         return cell
     }

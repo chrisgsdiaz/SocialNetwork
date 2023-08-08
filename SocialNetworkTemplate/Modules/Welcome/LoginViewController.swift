@@ -206,14 +206,7 @@ extension LoginViewController {
             }
             
         }
-        /*
-        let homeVC = HomeViewController()
-        let navController = UINavigationController(rootViewController: homeVC)
-        navController.modalPresentationStyle = .fullScreen
-        self.present(navController, animated: true)
-         */
     }
-    
 }
 
 extension LoginViewController: UITextFieldDelegate {
