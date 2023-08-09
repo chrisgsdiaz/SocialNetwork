@@ -174,15 +174,16 @@ extension WelcomeViewController {
         //loginVC.modalPresentationStyle = .fullScreen
         //self.present(loginVC, animated: true, completion: nil)
         //PRESENT MODAL
-        self.show(loginVC, sender: nil)                                             //SAME AS BELOW, BUT THIS IS THE MODERN METHOD
+        self.show(loginVC, sender: nil) // -> SAME AS BELOW, BUT THIS IS THE MODERN METHOD
         //self.navigationController?.pushViewController(loginVC, animated: true)
         
-        //HARDCODE
-        
+        //TODO: REMOVER HARDCODE
+        /*
         let homeVC = HomeViewController()
         let navController = UINavigationController(rootViewController: homeVC)
         navController.modalPresentationStyle = .fullScreen
         self.present(navController, animated: true)
+         */
     }
     
     @objc func registerButtonAction(){

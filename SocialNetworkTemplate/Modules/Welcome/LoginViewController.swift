@@ -168,7 +168,9 @@ extension LoginViewController {
     
     private func performLogin(){
         guard let email = loginNameTextField.text, !email.isEmpty, email.isValidEmail() else {
-            NotificationBanner(title: "Error", subtitle: "Debes especificar un correo válido.", style: .warning).show()
+            //TODO: DESCOMENTAR PARA CORRECTO FUNCIONAMIENTO
+            //NotificationBanner(title: "Error", subtitle: "Debes especificar un correo válido.", style: .warning).show()
+            self.goHome()
             return
         }
         guard let password = passwordTextField.text, !password.isEmpty else {
@@ -185,27 +187,27 @@ extension LoginViewController {
             
             switch response {
             case .success(let response):
-                NotificationBanner(subtitle: "Bienvenido \(response.user.names)", style: .success).show()
-                let homeVC = HomeViewController()
-                let navController = UINavigationController(rootViewController: homeVC)
-                navController.modalPresentationStyle = .fullScreen
-                self.present(navController, animated: true)
+                self.goHome()
             case .error(let error):
-                //NotificationBanner(title: "Error", subtitle: error.localizedDescription, style: .danger).show()
+                //TODO: DESCOMENTAR PARA CORRECTO FUNCIONAMIENTO
+                //NotificationBanner(title: "Error", subtitle: "Hubo un error en tu proceso de autenticación: \(error.localizedDescription)", style: .danger).show()
                 
-                // Hardcode
-                NotificationBanner(subtitle: "Bienvenido Christopher", style: .success).show()
-                let homeVC = HomeViewController()
-                let navController = UINavigationController(rootViewController: homeVC)
-                navController.modalPresentationStyle = .fullScreen
-                self.present(navController, animated: true)
+                //TODO: COMENTAR HARDCODE
+                self.goHome()
                 
             case .errorResult(let entity):
-                NotificationBanner(title: "Error", subtitle: entity.error, style: .warning).show()
+                NotificationBanner(title: "Error", subtitle: "Hubo un error: \(entity.error)", style: .warning).show()
                 
             }
-            
         }
+    }
+    
+    private func goHome() {
+        let homeVC = HomeViewController()
+        homeVC.userName = "Leonardo"//TODO: DESCOMENTAR -> response.user.names
+        let navController = UINavigationController(rootViewController: homeVC)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true)
     }
 }
 

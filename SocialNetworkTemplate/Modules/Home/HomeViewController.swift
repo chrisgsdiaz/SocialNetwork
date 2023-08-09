@@ -6,16 +6,21 @@
 //
 
 import UIKit
+import Simple_Networking
+import SVProgressHUD
+import NotificationBannerSwift
 
 class HomeViewController: UIViewController {
     
     var appointment: UITableView! = UITableView(frame: .zero)
     var clearView: UIView!
+    var userName: String!
     
     //MARK: Properties
     
     private let cellID = "AppointmentTableViewCell"
     let images = ["ana", "karen", "leo", "israel"]
+    let brandImage = "wpBrand"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +28,11 @@ class HomeViewController: UIViewController {
         self.title = "Mis Consultas"
         setupUI()
         setupTableView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        NotificationBanner(subtitle: "Bienvenido \(userName ?? "")", style: .success).show()
     }
 
 }
@@ -41,6 +51,10 @@ extension HomeViewController {
         clearView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         clearView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         clearView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+    }
+    
+    private func getPost(){
         
     }
     
@@ -64,6 +78,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.boldDateAppointmentLabel.text = "Fecha y hora"
             cell.dateAppointmentLabel.text = "11 de junio 2023 a las 18:20 hrs."
             cell.doctorImageView.image = UtilsHelper.getImage(image: images[0])
+            cell.brandImageView.image = UtilsHelper.getImage(image: "wpBrand")
         }
         return cell
     }

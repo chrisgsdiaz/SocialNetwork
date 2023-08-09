@@ -92,6 +92,15 @@ class AppointmentTableViewCell: UITableViewCell {
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
+    
+    var brandImageView: UIImageView = {
+        let img = UIImageView(frame: .zero)
+        img.contentMode = .scaleAspectFit
+        img.clipsToBounds = true
+        img.layer.borderColor = UIColor.white.cgColor
+        img.translatesAutoresizingMaskIntoConstraints = false
+        return img
+    }()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -123,6 +132,12 @@ class AppointmentTableViewCell: UITableViewCell {
         doctorImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         doctorImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         doctorImageView.leftAnchor.constraint(equalTo: clearView.leftAnchor, constant: 10).isActive = true
+        
+        clearView.addSubview(brandImageView)
+        brandImageView.topAnchor.constraint(equalTo: doctorImageView.bottomAnchor, constant: 10).isActive = true
+        brandImageView.centerXAnchor.constraint(equalTo: doctorImageView.centerXAnchor).isActive = true
+        brandImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        brandImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         clearView.addSubview(boldDoctorLabel)
         boldDoctorLabel.topAnchor.constraint(equalTo: clearView.topAnchor, constant: 15).isActive = true
