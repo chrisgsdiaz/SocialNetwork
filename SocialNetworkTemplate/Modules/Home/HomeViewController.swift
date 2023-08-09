@@ -57,8 +57,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         if let cell = cell as? AppointmentTableViewCell {
-            cell.doctorLabel.text = "Ana Cristina"
+            cell.boldDoctorLabel.text = "Médico especialista"
+            cell.doctorLabel.text = "Ana Cristina Zuñiga Herrera"
+            cell.boldFieldAreaLabel.text = "Especialidad"
             cell.fieldAreaLabel.text = "Ortodoncia"
+            cell.boldDateAppointmentLabel.text = "Fecha y hora"
             cell.dateAppointmentLabel.text = "11 de junio 2023 a las 18:20 hrs."
             cell.doctorImageView.image = UtilsHelper.getImage(image: images[0])
         }

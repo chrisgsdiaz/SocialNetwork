@@ -20,10 +20,11 @@ class AppointmentTableViewCell: UITableViewCell {
         return view
     }()
     
-    var fieldAreaLabel: UILabel = {
+    var boldDoctorLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.textAlignment = .left
         label.textColor = .black
+        label.font = label.font.boldItalic.withSize(10)
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +34,39 @@ class AppointmentTableViewCell: UITableViewCell {
     var doctorLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.textAlignment = .left
+        label.textColor = .black.withAlphaComponent(0.8)
+        label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    var boldFieldAreaLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.textAlignment = .left
         label.textColor = .black
+        label.font = label.font.boldItalic.withSize(10)
+        label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    var fieldAreaLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.textAlignment = .left
+        label.textColor = .black.withAlphaComponent(0.8)
+        label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    var boldDateAppointmentLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.textAlignment = .left
+        label.textColor = .black
+        label.font = label.font.boldItalic.withSize(10)
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +76,7 @@ class AppointmentTableViewCell: UITableViewCell {
     var dateAppointmentLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = .black.withAlphaComponent(0.8)
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -87,22 +120,37 @@ class AppointmentTableViewCell: UITableViewCell {
         
         clearView.addSubview(doctorImageView)
         doctorImageView.centerYAnchor.constraint(equalTo: clearView.centerYAnchor).isActive = true
-        doctorImageView.heightAnchor.constraint(equalToConstant: 90).isActive = true
-        doctorImageView.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        doctorImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        doctorImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         doctorImageView.leftAnchor.constraint(equalTo: clearView.leftAnchor, constant: 10).isActive = true
         
+        clearView.addSubview(boldDoctorLabel)
+        boldDoctorLabel.topAnchor.constraint(equalTo: clearView.topAnchor, constant: 15).isActive = true
+        boldDoctorLabel.leftAnchor.constraint(equalTo: doctorImageView.rightAnchor, constant: 10).isActive = true
+        boldDoctorLabel.rightAnchor.constraint(equalTo: clearView.rightAnchor).isActive = true
+        
         clearView.addSubview(doctorLabel)
-        doctorLabel.topAnchor.constraint(equalTo: clearView.topAnchor, constant: 15).isActive = true
+        doctorLabel.topAnchor.constraint(equalTo: boldDoctorLabel.bottomAnchor, constant: 5).isActive = true
         doctorLabel.leftAnchor.constraint(equalTo: doctorImageView.rightAnchor, constant: 10).isActive = true
         doctorLabel.rightAnchor.constraint(equalTo: clearView.rightAnchor).isActive = true
         
+        clearView.addSubview(boldFieldAreaLabel)
+        boldFieldAreaLabel.topAnchor.constraint(equalTo: doctorLabel.bottomAnchor, constant: 15).isActive = true
+        boldFieldAreaLabel.leftAnchor.constraint(equalTo: doctorImageView.rightAnchor, constant: 10).isActive = true
+        boldFieldAreaLabel.rightAnchor.constraint(equalTo: clearView.rightAnchor).isActive = true
+        
         clearView.addSubview(fieldAreaLabel)
-        fieldAreaLabel.topAnchor.constraint(equalTo: doctorLabel.bottomAnchor, constant: 10).isActive = true
+        fieldAreaLabel.topAnchor.constraint(equalTo: boldFieldAreaLabel.bottomAnchor, constant: 5).isActive = true
         fieldAreaLabel.leftAnchor.constraint(equalTo: doctorImageView.rightAnchor, constant: 10).isActive = true
         fieldAreaLabel.rightAnchor.constraint(equalTo: clearView.rightAnchor).isActive = true
         
+        clearView.addSubview(boldDateAppointmentLabel)
+        boldDateAppointmentLabel.topAnchor.constraint(equalTo: fieldAreaLabel.bottomAnchor, constant: 15).isActive = true
+        boldDateAppointmentLabel.leftAnchor.constraint(equalTo: doctorImageView.rightAnchor, constant: 10).isActive = true
+        boldDateAppointmentLabel.rightAnchor.constraint(equalTo: clearView.rightAnchor).isActive = true
+        
         clearView.addSubview(dateAppointmentLabel)
-        dateAppointmentLabel.topAnchor.constraint(equalTo: fieldAreaLabel.bottomAnchor, constant: 10).isActive = true
+        dateAppointmentLabel.topAnchor.constraint(equalTo: boldDateAppointmentLabel.bottomAnchor, constant: 5).isActive = true
         dateAppointmentLabel.leftAnchor.constraint(equalTo:  doctorImageView.rightAnchor, constant: 10).isActive = true
         dateAppointmentLabel.rightAnchor.constraint(equalTo: clearView.rightAnchor).isActive = true
         dateAppointmentLabel.bottomAnchor.constraint(equalTo: clearView.bottomAnchor, constant: -10).isActive = true
