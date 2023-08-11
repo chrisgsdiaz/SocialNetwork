@@ -188,6 +188,7 @@ extension LoginViewController {
             switch response {
             case .success(let response):
                 self.goHome()
+                SimpleNetworking.setAuthenticationHeader(prefix: "", token: response.token)
             case .error(let error):
                 //TODO: DESCOMENTAR PARA CORRECTO FUNCIONAMIENTO
                 //NotificationBanner(title: "Error", subtitle: "Hubo un error en tu proceso de autenticación: \(error.localizedDescription)", style: .danger).show()

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AppointmentTableViewCell: UITableViewCell {
     
@@ -87,7 +88,7 @@ class AppointmentTableViewCell: UITableViewCell {
         let img = UIImageView(frame: .zero)
         img.contentMode = .scaleAspectFill
         img.clipsToBounds = true
-        img.layer.cornerRadius = 45
+        img.layer.cornerRadius = 50
         img.layer.borderColor = UIColor.white.cgColor
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
@@ -113,6 +114,7 @@ class AppointmentTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupConstraints()
+        setupLabels()
     }
     
     required init?(coder: NSCoder) {
@@ -172,8 +174,32 @@ class AppointmentTableViewCell: UITableViewCell {
         
     }
     
+    func setupLabels() {
+        self.boldDoctorLabel.text = "Médico especialista"
+        self.boldFieldAreaLabel.text = "Especialidad"
+        self.boldDateAppointmentLabel.text = "Fecha y hora"
+        self.brandImageView.image = UtilsHelper.getImage(image: "wpBrand")
+    }
+    
     func setupCellWith(post: Post) {
         doctorLabel.text = post.author.names
+        fieldAreaLabel.text = post.fieldArea
+        dateAppointmentLabel.text = post.dateAppointment
+        
+        if post.hasImage {
+            doctorImageView.kf.setImage(with: URL(string: post.imageUrl))
+        } else {
+            doctorImageView.isHidden = true
+        }
     }
-
+    
+    //TODO: COMENTAR
+    func setupCellDummy(doctor: String, area: String, dateAppointment: String, imageDoctor: String) {
+        
+        self.doctorLabel.text = doctor
+        self.fieldAreaLabel.text = area
+        self.dateAppointmentLabel.text = dateAppointment
+        self.doctorImageView.image = UtilsHelper.getImage(image: imageDoctor)
+        
+    }
 }
