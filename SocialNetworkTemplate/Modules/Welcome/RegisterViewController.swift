@@ -290,6 +290,8 @@ extension RegisterViewController: UITextFieldDelegate {
     
 }
 
+// MARK: - NavigationBar
+
 extension RegisterViewController: NavigationViewDelegate{
     
     private func setupNavigationBar() {

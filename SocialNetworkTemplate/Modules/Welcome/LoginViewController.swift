@@ -237,6 +237,8 @@ extension LoginViewController: UITextFieldDelegate {
     
 }
 
+// MARK: - NavigationBar
+
 extension LoginViewController: NavigationViewDelegate{
     
     private func setupNavigationBar() {

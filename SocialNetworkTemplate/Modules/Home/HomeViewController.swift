@@ -152,6 +152,8 @@ extension HomeViewController {
     }
 }
 
+// MARK: - NavigationBar
+
 extension HomeViewController: NavigationViewDelegate{
     
     private func setupNavigationBar() {
