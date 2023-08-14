@@ -89,7 +89,7 @@ class AppointmentTableViewCell: UITableViewCell {
         img.contentMode = .scaleAspectFill
         img.clipsToBounds = true
         img.layer.cornerRadius = 50
-        img.layer.borderColor = UIColor.white.cgColor
+        img.layer.borderColor = institutionalColors.whiteColor.cgColor
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
@@ -98,7 +98,7 @@ class AppointmentTableViewCell: UITableViewCell {
         let img = UIImageView(frame: .zero)
         img.contentMode = .scaleAspectFit
         img.clipsToBounds = true
-        img.layer.borderColor = UIColor.white.cgColor
+        img.layer.borderColor = institutionalColors.whiteColor.cgColor
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
@@ -122,6 +122,8 @@ class AppointmentTableViewCell: UITableViewCell {
     }
     
     func setupConstraints(){
+        
+        self.contentView.backgroundColor = institutionalColors.whiteColor
         
         contentView.addSubview(clearView)
         clearView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true

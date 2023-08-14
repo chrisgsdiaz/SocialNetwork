@@ -36,7 +36,7 @@ class NavigationView: UIView {
     convenience init(context: UIViewController, leftItemType: NavigationItemType, centerItemType: NavigationItemType, rigthItemType: NavigationItemType) {
         let height = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
         self.init(frame: CGRect(x: 0, y: 0, width: context.view.frame.width, height: height+80))
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
         
     }
     

@@ -102,55 +102,75 @@ extension RegisterViewController {
         contentStackView.addArrangedSubview(titleLabel)
         
         emailTextField = UITextField()
+        emailTextField.backgroundColor = .clear
+        emailTextField.textColor = institutionalColors.blackBackgroundColor
         emailTextField.keyboardType = .emailAddress
         emailTextField.autocapitalizationType = .none
         emailTextField.autocorrectionType = .no
-        emailTextField.placeholder = "Email"
         emailTextField.layer.masksToBounds = true
         emailTextField.layer.borderWidth = 0.5
         emailTextField.layer.cornerRadius = 8.0
         emailTextField.layer.borderColor = UIColor.gray.cgColor
         emailTextField.borderStyle = .roundedRect
+        emailTextField.attributedPlaceholder = NSAttributedString(
+            string: "Email",
+            attributes: [NSAttributedString.Key.foregroundColor: institutionalColors.grayLightColor]
+        )
         emailTextField.delegate = self
         contentStackView.addArrangedSubview(emailTextField)
         
         registerNameTextField = UITextField()
+        registerNameTextField.backgroundColor = .clear
+        registerNameTextField.textColor = institutionalColors.blackBackgroundColor
         registerNameTextField.keyboardType = .asciiCapable
         registerNameTextField.autocapitalizationType = .none
         registerNameTextField.autocorrectionType = .no
-        registerNameTextField.placeholder = "Nombre y Apellido"
         registerNameTextField.layer.masksToBounds = true
         registerNameTextField.layer.borderWidth = 0.5
         registerNameTextField.layer.cornerRadius = 8.0
         registerNameTextField.layer.borderColor = UIColor.gray.cgColor
         registerNameTextField.borderStyle = .roundedRect
+        registerNameTextField.attributedPlaceholder = NSAttributedString(
+            string: "Nombre y Apellido",
+            attributes: [NSAttributedString.Key.foregroundColor: institutionalColors.grayLightColor]
+        )
         registerNameTextField.delegate = self
         contentStackView.addArrangedSubview(registerNameTextField)
         
         phoneTextField = UITextField()
+        phoneTextField.backgroundColor = .clear
+        phoneTextField.textColor = institutionalColors.blackBackgroundColor
         phoneTextField.keyboardType = .numberPad
         phoneTextField.autocapitalizationType = .none
         phoneTextField.autocorrectionType = .no
-        phoneTextField.placeholder = "Número telefonico"
         phoneTextField.layer.masksToBounds = true
         phoneTextField.layer.borderWidth = 0.5
         phoneTextField.layer.cornerRadius = 8.0
         phoneTextField.layer.borderColor = UIColor.gray.cgColor
         phoneTextField.borderStyle = .roundedRect
+        phoneTextField.attributedPlaceholder = NSAttributedString(
+            string: "Número telefonico",
+            attributes: [NSAttributedString.Key.foregroundColor: institutionalColors.grayLightColor]
+        )
         phoneTextField.delegate = self
         contentStackView.addArrangedSubview(phoneTextField)
         
         passwordTextField = UITextField()
+        passwordTextField.backgroundColor = .clear
+        passwordTextField.textColor = institutionalColors.blackBackgroundColor
         passwordTextField.keyboardType = .asciiCapable
         passwordTextField.autocapitalizationType = .none
         passwordTextField.autocorrectionType = .no
         passwordTextField.isSecureTextEntry = true
-        passwordTextField.placeholder = "Password"
         passwordTextField.layer.masksToBounds = true
         passwordTextField.layer.borderWidth = 0.5
         passwordTextField.layer.cornerRadius = 8.0
         passwordTextField.layer.borderColor = UIColor.gray.cgColor
         passwordTextField.borderStyle = .roundedRect
+        passwordTextField.attributedPlaceholder = NSAttributedString(
+            string: "Contraseña",
+            attributes: [NSAttributedString.Key.foregroundColor: institutionalColors.grayLightColor]
+        )
         passwordTextField.delegate = self
         contentStackView.addArrangedSubview(passwordTextField)
         
@@ -158,7 +178,7 @@ extension RegisterViewController {
         registerButton.backgroundColor = institutionalColors.mainBackgroundColor //UIColor.systemGreen
         registerButton.layer.cornerRadius = 25
         registerButton.setTitle("Registro", for: .normal)
-        registerButton.setTitleColor(.white, for: .normal)
+        registerButton.setTitleColor(institutionalColors.whiteColor, for: .normal)
         registerButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         registerButton.addTarget(self, action: #selector(registerButtonAction), for: .touchUpInside)
         registerButton.isUserInteractionEnabled = true

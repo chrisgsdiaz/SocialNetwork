@@ -98,7 +98,7 @@ extension WelcomeViewController {
         titleLabel = UILabel()
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
-        titleLabel.textColor = .white
+        titleLabel.textColor = institutionalColors.whiteColor
         titleLabel.textAlignment = .center
         titleLabel.text = "Sourident"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
@@ -111,7 +111,7 @@ extension WelcomeViewController {
         subTitleLabel = UILabel()
         subTitleLabel.numberOfLines = 0
         subTitleLabel.lineBreakMode = .byWordWrapping
-        subTitleLabel.textColor = .white
+        subTitleLabel.textColor = institutionalColors.whiteColor
         subTitleLabel.textAlignment = .center
         subTitleLabel.text = "Odontología especializada"
         subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -133,7 +133,7 @@ extension WelcomeViewController {
         contentButtonsView.rightAnchor.constraint(equalTo: clearView.rightAnchor, constant: -20).isActive = true
         
         loginButton = UIButton()
-        loginButton.backgroundColor = .white
+        loginButton.backgroundColor = institutionalColors.whiteColor
         loginButton.layer.cornerRadius = 25
         loginButton.setTitle("Iniciar Sesión", for: .normal)
         loginButton.setTitleColor(.black, for: .normal)
@@ -149,7 +149,7 @@ extension WelcomeViewController {
         registerButton = UIButton()
         registerButton.backgroundColor = .clear
         registerButton.setTitle("Registro", for: .normal)
-        registerButton.setTitleColor(.white, for: .normal)
+        registerButton.setTitleColor(institutionalColors.whiteColor, for: .normal)
         registerButton.addTarget(self, action: #selector(registerButtonAction), for: .touchUpInside)
         registerButton.isUserInteractionEnabled = true
         registerButton.translatesAutoresizingMaskIntoConstraints = false

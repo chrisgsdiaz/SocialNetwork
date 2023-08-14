@@ -103,29 +103,39 @@ extension LoginViewController {
         contentStackView.addArrangedSubview(titleLabel)
         
         loginNameTextField = UITextField()
+        loginNameTextField.backgroundColor = .clear
+        loginNameTextField.textColor = institutionalColors.blackBackgroundColor
         loginNameTextField.keyboardType = .emailAddress
         loginNameTextField.autocapitalizationType = .none
         loginNameTextField.autocorrectionType = .no
-        loginNameTextField.placeholder = "Email"
         loginNameTextField.layer.masksToBounds = true
         loginNameTextField.layer.borderWidth = 0.5
         loginNameTextField.layer.cornerRadius = 8.0
         loginNameTextField.layer.borderColor = UIColor.gray.cgColor
         loginNameTextField.borderStyle = .roundedRect
+        loginNameTextField.attributedPlaceholder = NSAttributedString(
+            string: "Email",
+            attributes: [NSAttributedString.Key.foregroundColor: institutionalColors.grayLightColor]
+        )
         loginNameTextField.delegate = self
         contentStackView.addArrangedSubview(loginNameTextField)
         
         passwordTextField = UITextField()
+        passwordTextField.backgroundColor = .clear
+        passwordTextField.textColor = institutionalColors.blackBackgroundColor
         passwordTextField.keyboardType = .asciiCapable
         passwordTextField.autocapitalizationType = .none
         passwordTextField.autocorrectionType = .no
         passwordTextField.isSecureTextEntry = true
-        passwordTextField.placeholder = "Password"
         passwordTextField.layer.masksToBounds = true
         passwordTextField.layer.borderWidth = 0.5
         passwordTextField.layer.cornerRadius = 8.0
         passwordTextField.layer.borderColor = UIColor.gray.cgColor
         passwordTextField.borderStyle = .roundedRect
+        passwordTextField.attributedPlaceholder = NSAttributedString(
+            string: "Contraseña",
+            attributes: [NSAttributedString.Key.foregroundColor: institutionalColors.grayLightColor]
+        )
         passwordTextField.delegate = self
         contentStackView.addArrangedSubview(passwordTextField)
         
@@ -133,7 +143,7 @@ extension LoginViewController {
         loginButton.backgroundColor = institutionalColors.mainBackgroundColor //UIColor.systemGreen
         loginButton.layer.cornerRadius = 25
         loginButton.setTitle("Iniciar Sesión", for: .normal)
-        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.setTitleColor(institutionalColors.whiteColor, for: .normal)
         loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
         loginButton.isUserInteractionEnabled = true
