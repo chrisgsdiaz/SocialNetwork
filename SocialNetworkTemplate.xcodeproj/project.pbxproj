@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C3326DC2A9928070009BB20 /* ProfessionalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3326DB2A9928070009BB20 /* ProfessionalInfo.swift */; };
 		0C3FCBBE2A82FD2A00FCCC3A /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FCBBD2A82FD2A00FCCC3A /* UIFontExtension.swift */; };
 		0C3FCBC02A8ABB3D00FCCC3A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FCBBF2A8ABB3D00FCCC3A /* UIViewController.swift */; };
 		0C6555F229D6076300B1CF24 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6555F129D6076300B1CF24 /* BaseViewController.swift */; };
@@ -16,7 +17,6 @@
 		0C82CDA229E479F90026B244 /* GeneralUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82CDA129E479F90026B244 /* GeneralUtils.swift */; };
 		0C82CDA429E47A700026B244 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82CDA329E47A700026B244 /* UIColorExtension.swift */; };
 		0C82CDAF29E47ED10026B244 /* PostLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82CDA729E47ED10026B244 /* PostLocation.swift */; };
-		0C82CDB129E47ED10026B244 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82CDA929E47ED10026B244 /* Post.swift */; };
 		0C82CDB629E47ED10026B244 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82CDAE29E47ED10026B244 /* User.swift */; };
 		0C82CDB829E47EF30026B244 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82CDB729E47EF30026B244 /* EndPoints.swift */; };
 		0C82CDBB29E48B430026B244 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82CDBA29E48B430026B244 /* LoginRequest.swift */; };
@@ -40,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C3326DB2A9928070009BB20 /* ProfessionalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalInfo.swift; sourceTree = "<group>"; };
 		0C3FCBBD2A82FD2A00FCCC3A /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		0C3FCBBF2A8ABB3D00FCCC3A /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		0C6555F129D6076300B1CF24 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +50,6 @@
 		0C82CDA129E479F90026B244 /* GeneralUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUtils.swift; sourceTree = "<group>"; };
 		0C82CDA329E47A700026B244 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		0C82CDA729E47ED10026B244 /* PostLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostLocation.swift; sourceTree = "<group>"; };
-		0C82CDA929E47ED10026B244 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		0C82CDAE29E47ED10026B244 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0C82CDB729E47EF30026B244 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		0C82CDBA29E48B430026B244 /* LoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
@@ -122,9 +122,9 @@
 			children = (
 				0C82CDC429E48B790026B244 /* Responses */,
 				0C82CDB929E48B300026B244 /* Requests */,
-				0C82CDA929E47ED10026B244 /* Post.swift */,
 				0C82CDA729E47ED10026B244 /* PostLocation.swift */,
 				0C82CDAE29E47ED10026B244 /* User.swift */,
+				0C3326DB2A9928070009BB20 /* ProfessionalInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -370,6 +370,7 @@
 				0C82CDBB29E48B430026B244 /* LoginRequest.swift in Sources */,
 				0C6555F429D61EA000B1CF24 /* NavigationView.swift in Sources */,
 				0CC53C8F29D51D86008E0524 /* WelcomeViewController.swift in Sources */,
+				0C3326DC2A9928070009BB20 /* ProfessionalInfo.swift in Sources */,
 				0CC0A50629D36D6400AF4144 /* ViewController.swift in Sources */,
 				0C82CDB829E47EF30026B244 /* EndPoints.swift in Sources */,
 				0C82CDC329E48B620026B244 /* PostRequestLocation.swift in Sources */,
@@ -379,7 +380,6 @@
 				0C82CDC829E48B840026B244 /* LoginResponse.swift in Sources */,
 				0C82CDC129E48B620026B244 /* RegisterRequest.swift in Sources */,
 				0CC0A50229D36D6400AF4144 /* AppDelegate.swift in Sources */,
-				0C82CDB129E47ED10026B244 /* Post.swift in Sources */,
 				0C82CDAF29E47ED10026B244 /* PostLocation.swift in Sources */,
 				0C82CDCA29E48B840026B244 /* GeneralResponse.swift in Sources */,
 				0C6555F229D6076300B1CF24 /* BaseViewController.swift in Sources */,

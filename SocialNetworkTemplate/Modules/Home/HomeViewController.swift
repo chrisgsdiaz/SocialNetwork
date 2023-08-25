@@ -21,19 +21,26 @@ class HomeViewController: BaseViewController {
     //MARK: Properties
     
     private let cellID = "AppointmentTableViewCell"
-    let doctors = ["Dra. Ana Cristina Zuñiga Herrera", "Dra. Karen Ramirez", "Dr. Leonardo Antonio Guerrero Bautista", "Dr. Israel Reyes"]
-    let specialties = ["Odontóloga", "Estomatologa", "Odontólogo", "Ortodoncista"]
-    let dates = ["11 de junio 2023 a las 18:20 hrs.", "11 de julio 2023 a las 18:50 hrs.", "11 de agosto 2023 a las 18:40 hrs.", "11 de septiembre 2023 a las 18:10 hrs."]
-    let images = ["ana", "karen", "leo", "israel"]
-        
-    private var dataSource = [Post]()
+    private var professionalDataSource = [ProfessionalInfo]()
+    private var professionalDummyInfo = [ProfessionalInfo]()
+    
+    let ana = ProfessionalInfo(id: "1", author: User(email: "ana@sourident.com", names: "Dra. Ana Cristina Zuñiga Herrera", nickname: "Ana"), fieldArea: "Odontóloga", dateAppointment: "11 de junio 2023 a las 18:20 hrs.", hasImage: true, imageUrl: "ana", createdAt: "March16")
+    let karen = ProfessionalInfo(id: "2", author: User(email: "karen@sourident.com", names: "Dra. Karen Ramirez", nickname: "Ana"), fieldArea: "Estomatologa", dateAppointment: "11 de julio 2023 a las 18:50 hrs.", hasImage: true, imageUrl: "karen", createdAt: "March16")
+    let leo = ProfessionalInfo(id: "3", author: User(email: "leonardo@sourident.com", names: "Dr. Leonardo Antonio Guerrero Bautista", nickname: "Leo"), fieldArea: "Odontólogo", dateAppointment: "11 de agosto 2023 a las 18:40 hrs.", hasImage: true, imageUrl: "leo", createdAt: "March16")
+    let israel = ProfessionalInfo(id: "4", author: User(email: "israel@sourident.com", names: "Dr. Israel Reyes", nickname: "isra"), fieldArea: "Ortodoncista", dateAppointment: "11 de septiembre 2023 a las 18:10 hrs.", hasImage: true, imageUrl: "israel", createdAt: "March16")
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setupUI()
+        //TODO: COMENTAR
+        professionalDummyInfo.append(ana)
+        professionalDummyInfo.append(karen)
+        professionalDummyInfo.append(leo)
+        professionalDummyInfo.append(israel)
         //TODO: DESCOMENTAR PARA CORRECTO FUNCIONAMIENTO
-        //getPosts()
+        //getProfessionalItems()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -96,20 +103,43 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //TODO: COMENTAR
-        return doctors.count
+        return professionalDummyInfo.count
         //TODO: DESCOMENTAR PARA CORRECTO FUNCIONAMIENTO
-        //return dataSource.count
+        //return professionalDataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         if let cell = cell as? AppointmentTableViewCell {
             //TODO: COMENTAR
-            cell.setupCellDummy(doctor: doctors[indexPath.row], area: specialties[indexPath.row], dateAppointment: dates[indexPath.row], imageDoctor: images[indexPath.row])
+            cell.setupCellWithDummy(professionalItem: professionalDummyInfo[indexPath.row])
             //TODO: DESCOMENTAR PARA CORRECTO FUNCIONAMIENTO
-            //cell.setupCellWith(post: dataSource[indexPath.row])
+            //cell.setupCellWith(professionalItem: professionalDataSource[indexPath.row])
         }
         return cell
+    }
+    /*
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Cancelar cita") { _, _ in
+            //Aqui cancelamos una cita
+            self.deleteAppointmentAt(indexPath: indexPath)
+        }
+        
+        return [deleteAction]
+    }
+    */
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let contextItem = UIContextualAction(style: .destructive, title: "Cancelar cita") {  (contextualAction, view, boolValue) in
+            
+            //TODO: COMENTAR
+            self.deleteAppointmentDummyAt(indexPath: indexPath)
+            //TODO: DESCOMENTAR PARA CORRECTO FUNCIONAMIENTO
+            //self.deleteAppointmentAt(indexPath: indexPath)
+        }
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+
+        return swipeActions
     }
 }
 
@@ -125,18 +155,18 @@ extension HomeViewController {
 // MARK: - Call services
 
 extension HomeViewController {
-    private func getPosts(){
+    private func getProfessionalItems(){
         //1.- Indicar la carga al usuario
         SVProgressHUD.show()
         //2.- Consumir el servicio
-        SN.get(endpoint: Endpoints.getPosts) { (response: SNResultWithEntity<[Post], ErrorResponse>) in
+        SN.get(endpoint: Endpoints.getPosts) { (response: SNResultWithEntity<[ProfessionalInfo], ErrorResponse>) in
             //Cerramos el indicador de carga
             SVProgressHUD.dismiss()
             
             switch response {
-            case .success(let posts):
+            case .success(let professionalItems):
                 
-                self.dataSource = posts
+                self.professionalDataSource = professionalItems
                 self.appointmentTableView.reloadData()
                 
             case .error(let error):
@@ -149,6 +179,47 @@ extension HomeViewController {
                 
             }
         }
+    }
+    
+    private func deleteAppointmentAt(indexPath: IndexPath) {
+        //1.- Indicar la carga al usuario
+        SVProgressHUD.show()
+        
+        let appointmentID = professionalDataSource[indexPath.row].id
+        let endpoint = Endpoints.delete + appointmentID
+        
+        SN.delete(endpoint: endpoint) { (result: SNResultWithEntity<GeneralResponse, ErrorResponse>) in
+            //Cerramos el indicador de carga
+            SVProgressHUD.dismiss()
+            
+            switch result {
+            case .success:
+                
+                //Borrar el post de professionalDataSource
+                self.professionalDataSource.remove(at: indexPath.row)
+                
+                //Borrar la celda de la tabla
+                self.appointmentTableView.deleteRows(at: [indexPath], with: .left)
+                
+            case .error(let error):
+                
+                NotificationBanner(title: "Error", subtitle: "Hubo un error en tu proceso de autenticación: \(error.localizedDescription)", style: .danger).show()
+                
+            case .errorResult(let entity):
+                
+                NotificationBanner(title: "Error", subtitle: "Hubo un error: \(entity.error)", style: .warning).show()
+            }
+        }
+    }
+}
+
+// MARK: - Standar methods
+
+extension HomeViewController {
+    
+    private func deleteAppointmentDummyAt(indexPath: IndexPath) {
+        self.professionalDummyInfo.remove(at: indexPath.row)
+        self.appointmentTableView.deleteRows(at: [indexPath], with: .left)
     }
 }
 

@@ -183,25 +183,29 @@ class AppointmentTableViewCell: UITableViewCell {
         self.brandImageView.image = UtilsHelper.getImage(image: "wpBrand")
     }
     
-    func setupCellWith(post: Post) {
-        doctorLabel.text = post.author.names
-        fieldAreaLabel.text = post.fieldArea
-        dateAppointmentLabel.text = post.dateAppointment
+    func setupCellWith(professionalItem: ProfessionalInfo) {
+        doctorLabel.text = professionalItem.author.names
+        fieldAreaLabel.text = professionalItem.fieldArea
+        dateAppointmentLabel.text = professionalItem.dateAppointment
         
-        if post.hasImage {
-            doctorImageView.kf.setImage(with: URL(string: post.imageUrl))
+        if professionalItem.hasImage {
+            doctorImageView.kf.setImage(with: URL(string: professionalItem.imageUrl))
         } else {
             doctorImageView.isHidden = true
         }
     }
     
     //TODO: COMENTAR
-    func setupCellDummy(doctor: String, area: String, dateAppointment: String, imageDoctor: String) {
+    func setupCellWithDummy(professionalItem: ProfessionalInfo) {
         
-        self.doctorLabel.text = doctor
-        self.fieldAreaLabel.text = area
-        self.dateAppointmentLabel.text = dateAppointment
-        self.doctorImageView.image = UtilsHelper.getImage(image: imageDoctor)
+        self.doctorLabel.text = professionalItem.author.names
+        self.fieldAreaLabel.text = professionalItem.fieldArea
+        self.dateAppointmentLabel.text = professionalItem.dateAppointment
+        if professionalItem.hasImage {
+            self.doctorImageView.image = UtilsHelper.getImage(image: professionalItem.imageUrl)
+        } else {
+            self.doctorImageView.isHidden = true
+        }
         
     }
 }
