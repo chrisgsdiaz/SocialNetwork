@@ -11,8 +11,5 @@ target 'SocialNetworkTemplate' do
 	pod 'SVProgressHUD'
 	pod 'Simple-Networking', '~> 0.3.2'
 	pod 'Kingfisher', '~> 5.0'
-	pod 'Firebase/Storage'
-	pod 'Firebase/Analytics'
-	pod 'FirebaseCrashlytics', '~> 10.7'
 
 end

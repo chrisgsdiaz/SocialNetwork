@@ -118,17 +118,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
-    /*
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Cancelar cita") { _, _ in
-            //Aqui cancelamos una cita
-            self.deleteAppointmentAt(indexPath: indexPath)
-        }
-        
-        return [deleteAction]
-    }
-    */
+   
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let contextItem = UIContextualAction(style: .destructive, title: "Cancelar cita") {  (contextualAction, view, boolValue) in
             
