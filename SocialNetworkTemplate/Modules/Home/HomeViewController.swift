@@ -23,6 +23,7 @@ class HomeViewController: BaseViewController {
     private let cellID = "AppointmentTableViewCell"
     private var professionalDataSource = [ProfessionalInfo]()
     private var professionalDummyInfo = [ProfessionalInfo]()
+    var counterBanner = 0
     
     let ana = ProfessionalInfo(id: "1", author: User(email: "ana@sourident.com", names: "Dra. Ana Cristina Zuñiga Herrera", nickname: "Ana"), fieldArea: "Odontóloga", dateAppointment: "11 de junio 2023 a las 18:20 hrs.", hasImage: true, imageUrl: "ana", createdAt: "March16")
     let karen = ProfessionalInfo(id: "2", author: User(email: "karen@sourident.com", names: "Dra. Karen Ramirez", nickname: "Ana"), fieldArea: "Estomatologa", dateAppointment: "11 de julio 2023 a las 18:50 hrs.", hasImage: true, imageUrl: "karen", createdAt: "March16")
@@ -45,7 +46,10 @@ class HomeViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        NotificationBanner(subtitle: "Bienvenido \(userName ?? "")", style: .success).show()
+        if counterBanner == 0 {
+            NotificationBanner(subtitle: "Bienvenido \(userName ?? "")", style: .success).show()
+            counterBanner += 1
+        }
     }
 
 }
@@ -65,7 +69,7 @@ extension HomeViewController {
         appointmentTableView.rowHeight = UITableView.automaticDimension
         appointmentTableView.insetsContentViewsToSafeArea = false
         appointmentTableView.separatorStyle = .none
-        appointmentTableView.allowsSelection = false
+        appointmentTableView.allowsSelection = true
         appointmentTableView.backgroundColor = .clear
         appointmentTableView.showsVerticalScrollIndicator = false
         appointmentTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -117,6 +121,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             //cell.setupCellWith(professionalItem: professionalDataSource[indexPath.row])
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = AppointmentDetailViewController()
+        self.show(detailVC, sender: nil)
     }
    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

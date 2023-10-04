@@ -14,8 +14,12 @@ class AppointmentTableViewCell: UITableViewCell {
     
     var clearView: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = institutionalColors.grayLightColor.withAlphaComponent(0.2)
-        view.clipsToBounds = true
+        view.backgroundColor = institutionalColors.whiteColor
+        view.layer.shadowColor = institutionalColors.grayLightColor.cgColor
+        view.layer.shadowOffset = CGSize(width: 3, height: 3)
+        view.layer.shadowOpacity = 1.0
+        view.layer.shadowRadius = 10.0
+        view.layer.masksToBounds = false        
         view.layer.cornerRadius = 10
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -125,50 +129,50 @@ class AppointmentTableViewCell: UITableViewCell {
         
         self.contentView.backgroundColor = institutionalColors.whiteColor
         
-        contentView.addSubview(clearView)
+        self.contentView.addSubview(clearView)
         clearView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
         clearView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20).isActive = true
         clearView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20).isActive = true
         clearView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
         
-        clearView.addSubview(doctorImageView)
+        self.contentView.addSubview(doctorImageView)
         doctorImageView.centerYAnchor.constraint(equalTo: clearView.centerYAnchor).isActive = true
         doctorImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         doctorImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         doctorImageView.leftAnchor.constraint(equalTo: clearView.leftAnchor, constant: 10).isActive = true
         
-        clearView.addSubview(brandImageView)
+        self.contentView.addSubview(brandImageView)
         brandImageView.topAnchor.constraint(equalTo: doctorImageView.bottomAnchor, constant: 10).isActive = true
         brandImageView.centerXAnchor.constraint(equalTo: doctorImageView.centerXAnchor).isActive = true
         brandImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         brandImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
-        clearView.addSubview(boldDoctorLabel)
+        self.contentView.addSubview(boldDoctorLabel)
         boldDoctorLabel.topAnchor.constraint(equalTo: clearView.topAnchor, constant: 15).isActive = true
         boldDoctorLabel.leftAnchor.constraint(equalTo: doctorImageView.rightAnchor, constant: 10).isActive = true
         boldDoctorLabel.rightAnchor.constraint(equalTo: clearView.rightAnchor).isActive = true
         
-        clearView.addSubview(doctorLabel)
+        self.contentView.addSubview(doctorLabel)
         doctorLabel.topAnchor.constraint(equalTo: boldDoctorLabel.bottomAnchor, constant: 5).isActive = true
         doctorLabel.leftAnchor.constraint(equalTo: doctorImageView.rightAnchor, constant: 10).isActive = true
         doctorLabel.rightAnchor.constraint(equalTo: clearView.rightAnchor).isActive = true
         
-        clearView.addSubview(boldFieldAreaLabel)
+        self.contentView.addSubview(boldFieldAreaLabel)
         boldFieldAreaLabel.topAnchor.constraint(equalTo: doctorLabel.bottomAnchor, constant: 15).isActive = true
         boldFieldAreaLabel.leftAnchor.constraint(equalTo: doctorImageView.rightAnchor, constant: 10).isActive = true
         boldFieldAreaLabel.rightAnchor.constraint(equalTo: clearView.rightAnchor).isActive = true
         
-        clearView.addSubview(fieldAreaLabel)
+        self.contentView.addSubview(fieldAreaLabel)
         fieldAreaLabel.topAnchor.constraint(equalTo: boldFieldAreaLabel.bottomAnchor, constant: 5).isActive = true
         fieldAreaLabel.leftAnchor.constraint(equalTo: doctorImageView.rightAnchor, constant: 10).isActive = true
         fieldAreaLabel.rightAnchor.constraint(equalTo: clearView.rightAnchor).isActive = true
         
-        clearView.addSubview(boldDateAppointmentLabel)
+        self.contentView.addSubview(boldDateAppointmentLabel)
         boldDateAppointmentLabel.topAnchor.constraint(equalTo: fieldAreaLabel.bottomAnchor, constant: 15).isActive = true
         boldDateAppointmentLabel.leftAnchor.constraint(equalTo: doctorImageView.rightAnchor, constant: 10).isActive = true
         boldDateAppointmentLabel.rightAnchor.constraint(equalTo: clearView.rightAnchor).isActive = true
         
-        clearView.addSubview(dateAppointmentLabel)
+        self.contentView.addSubview(dateAppointmentLabel)
         dateAppointmentLabel.topAnchor.constraint(equalTo: boldDateAppointmentLabel.bottomAnchor, constant: 5).isActive = true
         dateAppointmentLabel.leftAnchor.constraint(equalTo:  doctorImageView.rightAnchor, constant: 10).isActive = true
         dateAppointmentLabel.rightAnchor.constraint(equalTo: clearView.rightAnchor).isActive = true

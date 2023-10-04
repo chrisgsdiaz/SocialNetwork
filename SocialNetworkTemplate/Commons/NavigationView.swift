@@ -30,7 +30,7 @@ class NavigationView: UIView {
     private var titleLabel: UILabel!
     private var subTitleLabel: UILabel!
     private var rightView: UIView!
-    private var claroImageView: UIImageView!
+    private var brandImageView: UIImageView!
     var statusBarHeight: CGFloat = UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
 
     convenience init(context: UIViewController, leftItemType: NavigationItemType, centerItemType: NavigationItemType, rigthItemType: NavigationItemType) {
@@ -42,7 +42,7 @@ class NavigationView: UIView {
     
     func setUpView(like: NavigationItemType) {
       
-        claroImageView = UIImageView(image: UIImage(named: "Logo_claro"))
+        brandImageView = UIImageView(image: UIImage(named: "wpBrand"))
         switch like {
         case .BACK:
             let backButton = UIButton(type: .system)
@@ -66,6 +66,15 @@ class NavigationView: UIView {
         }
     }
     
+    func setUpLogoView() {
+        brandImageView.contentMode = .scaleAspectFit
+        brandImageView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(brandImageView)
+        brandImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: UIApplication.shared.statusBarFrame.height).isActive = true
+        brandImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
+        brandImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+        brandImageView.widthAnchor.constraint(equalToConstant: 93).isActive = true
+    }
     
     func setUpLeftView() {
         leftView.translatesAutoresizingMaskIntoConstraints = false
